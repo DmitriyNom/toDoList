@@ -1,0 +1,47 @@
+* {
+   padding: 0;
+   margin: 0;
+   box-sizing: border-box;
+}
+
+#root {
+   display: flex;
+   justify-content: center;
+}
+
+.listWindow {
+   width: 800px;
+   height: auto;
+   margin-top: 30px;
+   border: 2px solid navy;
+   border-radius: 30px;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+}
+
+.listWindow h1 {
+   margin: 20px 0;
+   color: navy;
+   font-size: 24px;
+   font-family: 'Courier New', Courier, monospace;
+}
+
+.notesList {
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   width: 100%;
+   margin-bottom: 20px;
+}
+
+.simpleNote {
+   font-size: 14px;
+   color: teal;
+   border: 2px solid navy;
+   border-radius: 30px;
+   margin-bottom: 10px;
+   width: 90%;
+   padding: 10px;
+
+}

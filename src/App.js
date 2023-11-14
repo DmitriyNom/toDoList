@@ -1,23 +1,19 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import ListWindow from "./components/ListWindow";
+import Note from "./shared/UI/Note";
+import './styles/App.css';
 
 function App() {
+
+  const [notes, setNotes] = useState([
+    { id: 1, name: "First Note" },
+    { id: 2, name: "Second Note" },
+    { id: 3, name: "Third Note" },
+  ]);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ListWindow notes={notes} />
     </div>
   );
 }
