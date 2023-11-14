@@ -36,12 +36,73 @@
 }
 
 .simpleNote {
-   font-size: 14px;
+   font-size: 18px;
    color: teal;
+   font-weight: bold;
    border: 2px solid navy;
    border-radius: 30px;
    margin-bottom: 10px;
    width: 90%;
    padding: 10px;
-
+   display: flex;
+   justify-content: space-around;
 }
+
+.addNoteForm {
+   width: 800px;
+   height: auto;
+   margin-top: 30px;
+   border: 2px solid navy;
+   border-radius: 30px;
+   padding: 20px;
+   display: flex;
+   justify-content: space-around;
+}
+
+input::-moz-placeholder { 
+   color: lightslategray; 
+   font-weight: lighter;
+}
+input::-webkit-input-placeholder { 
+   color: lightslategray;
+   font-weight: lighter; 
+}
+
+.noteInput {
+   flex-grow: 3;
+   font-size: 22px;
+   font-weight: bold;
+   outline: none;
+   color: navy;
+   font-family: 'Courier New', Courier, monospace;
+   padding: 4px 14px 4px 14px;
+   border: 1px solid navy;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   cursor: pointer;
+}
+
+.noteInput:focus {
+   border: 2px solid navy;
+   border-radius: 3px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
+   padding: 3px 13px 3px 13px;
+}
+
+.addNoteButton {
+   border: 2px solid navy;
+   flex-grow: 1;
+   background: navy;
+   color: aqua;
+   font-family: 'Courier New', Courier, monospace;
+   font-size: 18px;
+   font-weight: bold;
+   padding: 0 20px 0 20px;
+   border-top-right-radius: 10px;
+   border-bottom-right-radius: 10px;
+   margin-left: 20px;
+   cursor: pointer;
+}
+
+
