@@ -9,12 +9,13 @@ const AddNoteForm = ({ addNote, id }) => {
    function getInputState(e) {
       inputValue = e.target.value;
       setInputValue(inputValue);
-      console.log(inputValue);
    }
 
    function addInputValue(e) {
       e.preventDefault();
-      addNote({ id, name: inputValue })
+      if (inputValue !== '') {
+         addNote({ id, name: inputValue });
+      }
       setInputValue('');
    }
 

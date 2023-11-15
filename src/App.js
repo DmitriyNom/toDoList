@@ -1,7 +1,7 @@
 import { useState } from "react";
-import AddNoteForm from "./components/AddNoteForm";
+import AddNoteForm from "./widgets/AddNoteForm";
 import ListWindow from "./components/ListWindow";
-import Note from "./shared/UI/Note";
+import Note from "./components/Note";
 import './styles/App.css';
 
 function App() {
@@ -16,9 +16,13 @@ function App() {
     setNotes([...notes, newNote])
   }
 
+  function deleteNote(id) {
+    setNotes(notes.filter(note => note.id != id));
+  }
+
   return (
     <div className="App">
-      <ListWindow notes={notes} />
+      <ListWindow notes={notes} deleteNote={deleteNote} />
       <AddNoteForm addNote={addNote} id={notes.length + 1} />
     </div>
   );
