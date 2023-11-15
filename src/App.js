@@ -1,6 +1,6 @@
 import { useState } from "react";
 import AddNoteForm from "./widgets/AddNoteForm";
-import ListWindow from "./components/ListWindow";
+import ListWindow from "./widgets/ListWindow";
 import Note from "./components/Note";
 import './styles/App.css';
 

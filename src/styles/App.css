@@ -121,6 +121,11 @@ input::-webkit-input-placeholder {
    margin-left: 10px;
 }
 
+.onlyDeleteButton {
+   border-radius: 10px;
+   margin-right: 38px;
+}
+
 .doneButton {
    color: teal;
    background: lightgreen;

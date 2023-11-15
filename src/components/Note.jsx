@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import DeleteButton from "../shared/UI/DeleteButton";
-import DoneButton from "../shared/UI/DoneButton";
+import ButtonBlock from "./ButtonBlock";
 
 const Note = ({ note, deleteNote }) => {
 
@@ -17,17 +16,7 @@ const Note = ({ note, deleteNote }) => {
       <div className={className}>
          <p>Id: {note.id}</p>
          <p>Name: {note.name}</p >
-         <div className="buttonBlock">
-            <DoneButton
-               value="Done"
-               onClick={addDoneClass}
-               className="doneButton" />
-            <DeleteButton
-               className="deleteNoteButton"
-               value="Delete"
-               onClick={() => deleteNote(note.id)}
-            />
-         </div>
+         <ButtonBlock deleteNote={deleteNote} addDoneClass={addDoneClass} note={note} className={className} />
       </div >
    )
 }
