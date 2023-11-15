@@ -1,14 +1,9 @@
 import React from "react";
 
-const AddNoteButton = ({ addNewNote }) => {
-
-   function addNote(e) {
-      e.preventDefault();
-      addNewNote();
-   }
+const AddNoteButton = (props) => {
 
    return (
-      <input type="submit" className="addNoteButton" value='Add Note' onClick={addNote} />
+      <button type="submit" {...props}>{props.value}</button>
    )
 }
 

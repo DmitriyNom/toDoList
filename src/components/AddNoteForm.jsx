@@ -4,22 +4,31 @@ import NoteInput from "../shared/UI/NoteInput";
 
 const AddNoteForm = ({ addNote, id }) => {
 
-   const [inputValue, setInputValue] = useState('value');
+   let [inputValue, setInputValue] = useState('');
 
-   function getInputState(currentValue) {
-      setInputValue(currentValue)
+   function getInputState(e) {
+      inputValue = e.target.value;
+      setInputValue(inputValue);
+      console.log(inputValue);
    }
 
-   function addNewNote() {
-      let newNote = { id, name: inputValue };
-      console.log(newNote);
-      addNote(newNote);
+   function addInputValue(e) {
+      e.preventDefault();
+      addNote({ id, name: inputValue })
+      setInputValue('');
    }
 
    return (
       <form className="addNoteForm">
-         <NoteInput getInputState={getInputState} />
-         <AddNoteButton addNewNote={addNewNote} />
+         <NoteInput
+            className="noteInput"
+            placeholder="Input new note here..."
+            onChange={getInputState}
+            value={inputValue} />
+         <AddNoteButton
+            className="addNoteButton"
+            value='Add Note'
+            onClick={addInputValue} />
       </form>
    )
 }
