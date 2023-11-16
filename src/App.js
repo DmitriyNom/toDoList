@@ -23,7 +23,7 @@ function App() {
   return (
     <div className="App">
       <ListWindow notes={notes} deleteNote={deleteNote} />
-      <AddNoteForm addNote={addNote} id={notes.length + 1} />
+      <AddNoteForm addNote={addNote} id={(notes[notes.length - 1].id) + 1} />
     </div>
   );
 }
