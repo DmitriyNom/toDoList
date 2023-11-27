@@ -14,7 +14,7 @@ const AddNoteForm = ({ addNote, id }) => {
    function addInputValue(e) {
       e.preventDefault();
       if (inputValue !== '') {
-         addNote({ id, name: inputValue });
+         addNote({ id, name: inputValue, status: false });
       }
       setInputValue('');
    }
