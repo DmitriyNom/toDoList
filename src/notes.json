@@ -1,0 +1,42 @@
+[
+   {
+      "id": 1,
+      "name": "Feed the dog",
+      "status": false
+   },
+   {
+      "id": 2,
+      "name": "Buy groceries",
+      "status": false
+   },
+   {
+      "id": 3,
+      "name": "Wash the dishes",
+      "status": false
+   },
+   {
+      "id": 4,
+      "name": "Get some rest",
+      "status": true
+   },
+   {
+      "id": 5,
+      "name": "Pass all exams",
+      "status": false
+   },
+   {
+      "id": 6,
+      "name": "Play computer games",
+      "status": true
+   },
+   {
+      "id": 7,
+      "name": "Feed the cat",
+      "status": false
+   },
+   {
+      "id": 8,
+      "name": "Finish the backend side",
+      "status": false
+   }
+]
