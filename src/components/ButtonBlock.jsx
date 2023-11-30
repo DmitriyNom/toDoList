@@ -11,9 +11,9 @@ const ButtonBlock = ({ note, deleteNote, addDoneClass, className }) => {
             <DoneButton
                value="Done"
                onClick={addDoneClass}
-               className="doneButton" />
+               className="button doneButton" />
             <DeleteButton
-               className="deleteNoteButton"
+               className="button deleteNoteButton"
                value="Delete"
                onClick={() => deleteNote(note.id)}
             />
@@ -22,7 +22,7 @@ const ButtonBlock = ({ note, deleteNote, addDoneClass, className }) => {
    } else {
       return (
          <DeleteButton
-            className="deleteNoteButton onlyDeleteButton"
+            className="button deleteNoteButton onlyDeleteButton"
             value="Delete"
             onClick={() => deleteNote(note.id)}
          />

@@ -7,7 +7,7 @@ const NotesList = (props) => {
       <div className="notesList">
 
          {props.notes.map((note) =>
-            <Note note={note} key={note.id} deleteNote={props.deleteNote} />
+            <Note note={note} key={Math.random() * 100} deleteNote={props.deleteNote} />
          )}
 
       </div >

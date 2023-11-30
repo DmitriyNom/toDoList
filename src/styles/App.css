@@ -56,7 +56,7 @@
 .addNoteForm {
    width: 800px;
    height: auto;
-   margin-top: 30px;
+   margin: 40px 0;
    border: 2px solid navy;
    border-radius: 30px;
    padding: 20px;
@@ -93,6 +93,14 @@ input::-webkit-input-placeholder {
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
    padding: 3px 13px 3px 13px;
+}
+
+.button {
+   transition: all .1s ease;
+}
+
+.button:hover {
+   scale: 1.1;
 }
 
 .addNoteButton {

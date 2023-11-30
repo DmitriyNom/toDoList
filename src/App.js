@@ -18,21 +18,20 @@ function App() {
   function printNotes() {
     let currentAddress = addressList.get("getAllNotes");
 
-    fetch(currentAddress)
-      .then(value => {
-        return value.json();
-      })
+    fetch(currentAddress, {
+      method: "GET",
+      headers: { "Accept": "application/json" }
+    }).then(value => {
+      return value.json();
+    })
       .then(value => {
         setNotes(value);
       })
     // Добавить обработку ошибок
   }
 
-  let notesCounter = (notes.length === 0) ? 0 : notes[notes.length - 1].id;
-
-
   function addNote(newNote) {
-    // setNotes([...notes, newNote])
+
     let postNewNoteAddress = addressList.get("postNewNote");
 
     fetch(postNewNoteAddress, {
@@ -40,20 +39,34 @@ function App() {
       headers: { "Accept": "application/json", "Content-Type": "application/json" },
       body: JSON.stringify(newNote)
     })
-      .then(value => console.log(value));
-
-    setNotes([...notes, newNote]);
+      .then(value => value.json())
+      .then(value => {
+        setNotes([...notes, { id: value, ...newNote }])
+      })
 
   }
 
   function deleteNote(id) {
-    setNotes(notes.filter(note => note.id !== id));
+
+    let deletePostAddress = addressList.get("getAllNotes") + "/" + id;
+
+    fetch(deletePostAddress, {
+      method: "DELETE"
+    })
+      .then(value => {
+        if (value.status === 200) {
+          setNotes(notes.filter(note => note.id !== id));
+        } else {
+          console.log(value);
+        }
+      })
+
   }
 
   return (
     <div className="App">
       <ListWindow notes={notes} deleteNote={deleteNote} />
-      <AddNoteForm addNote={addNote} id={notesCounter + 1} />
+      <AddNoteForm addNote={addNote} />
     </div>
   );
 }

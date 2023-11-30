@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import AddNoteButton from "../shared/UI/AddNoteButton";
 import NoteInput from "../shared/UI/NoteInput";
 
-const AddNoteForm = ({ addNote, id }) => {
+const AddNoteForm = ({ addNote }) => {
 
    let [inputValue, setInputValue] = useState('');
 
@@ -14,7 +14,7 @@ const AddNoteForm = ({ addNote, id }) => {
    function addInputValue(e) {
       e.preventDefault();
       if (inputValue !== '') {
-         addNote({ id, name: inputValue, status: false });
+         addNote({ name: inputValue, status: false });
       }
       setInputValue('');
    }
