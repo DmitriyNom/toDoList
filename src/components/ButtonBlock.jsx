@@ -2,7 +2,7 @@ import React from "react";
 import DeleteButton from "../shared/UI/DeleteButton";
 import DoneButton from "../shared/UI/DoneButton";
 
-const ButtonBlock = ({ note, deleteNote, addDoneClass, className }) => {
+const ButtonBlock = ({ note, deleteNote, makeNoteDone, className }) => {
 
    if (className === "simpleNote") {
 
@@ -10,7 +10,7 @@ const ButtonBlock = ({ note, deleteNote, addDoneClass, className }) => {
          <div className="buttonBlock">
             <DoneButton
                value="Done"
-               onClick={addDoneClass}
+               onClick={makeNoteDone}
                className="button doneButton" />
             <DeleteButton
                className="button deleteNoteButton"

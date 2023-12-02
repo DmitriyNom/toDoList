@@ -34,14 +34,23 @@ function App() {
 
     let postNewNoteAddress = addressList.get("postNewNote");
 
+
     fetch(postNewNoteAddress, {
       method: "POST",
       headers: { "Accept": "application/json", "Content-Type": "application/json" },
       body: JSON.stringify(newNote)
     })
-      .then(value => value.json())
       .then(value => {
-        setNotes([...notes, { id: value, ...newNote }])
+        if (value.status === 201) {
+          value.json().then(value => {
+            setNotes([...notes, { id: value, ...newNote }])
+          })
+        } else {
+          value.json().then(value => {
+            //Выбросить модалку ошибки
+            console.log(value.message);
+          })
+        }
       })
 
   }
