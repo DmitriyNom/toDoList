@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 import NotesList from "../components/NotesList";
 
 const ListWindow = (props) => {

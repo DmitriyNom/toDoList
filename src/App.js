@@ -41,16 +41,13 @@ function App() {
       body: JSON.stringify(newNote)
     })
       .then(value => {
-        if (value.status === 201) {
-          value.json().then(value => {
-            setNotes([...notes, { id: value, ...newNote }])
-          })
-        } else {
-          value.json().then(value => {
-            //Выбросить модалку ошибки
+        value.json().then(value => {
+          if (value.id) {
+            setNotes([...notes, { id: value.id, ...newNote }]);
+          } else {
             console.log(value.message);
-          })
-        }
+          }
+        })
       })
 
   }

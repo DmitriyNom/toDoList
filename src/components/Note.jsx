@@ -6,6 +6,12 @@ const Note = ({ note, deleteNote }) => {
 
    let [className, setClassName] = useState('simpleNote');
 
+   if (note.status === true) {
+      addDoneClass();
+   }
+
+   addExpiredClass();
+
    function makeNoteDone() {
 
       let noteAddress = addressList.get("getAllNotes") + "/" + note.id + "/done";
@@ -27,19 +33,37 @@ const Note = ({ note, deleteNote }) => {
 
    function addDoneClass() {
       if (className === "simpleNote") {
-         setClassName(className += " done");
+         note.status = true;
+         setClassName(className += " doneNote");
       }
    }
 
-   if (note.status === true) {
-      addDoneClass();
+   function addExpiredClass() {
+      let expirationDate;
+
+
+
+      if (note.expirationDate != null) {
+         let noteArray = note.expirationDate.split("/");
+         expirationDate = new Date(noteArray[1] + "/" + noteArray[0] + "/" + noteArray[2]);
+
+         if (new Date() > expirationDate) {
+
+            console.log(new Date())
+            console.log(expirationDate)
+            if (className === "simpleNote") {
+               setClassName(className + " expiredNote")
+            }
+         }
+      }
    }
 
 
    return (
       <div className={className}>
          <p>Id: {note.id}</p>
-         <p>Name: {note.name}</p >
+         <p>{note.name}</p>
+         <p>{note.status.toString()}</p>
          <ButtonBlock deleteNote={deleteNote} makeNoteDone={makeNoteDone} note={note} className={className} />
       </div >
    )
